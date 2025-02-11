@@ -1,15 +1,24 @@
 /* Desktop Area */
 .desktop {
   flex: 1;
-  padding: 32px 64px 32px 32px;
+  min-height: calc(100vh - 36px); /* Subtract top bar height */
+  padding: 32px;
   position: relative;
   background: var(--bg-color);
   background-image: linear-gradient(var(--sub-color) 1px, transparent 1px),
     linear-gradient(90deg, var(--sub-color) 1px, transparent 1px);
   background-size: 32px 32px;
+}
+
+/* Icon Area */
+.icon-area {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  width: 120px;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  gap: 16px;
 }
 
 /* Icon Styling */
@@ -17,10 +26,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  cursor: pointer;
   width: 100px;
   padding: 4px;
-  transition: all 0.1s ease;
+  cursor: pointer;
+  user-select: none;
 }
 
 .icon-box {
@@ -30,12 +39,13 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 4px;
-  position: relative;
+  flex-shrink: 0;
 }
 
 .icon-box svg {
-  width: 72px;
-  height: 72px;
+  width: 72px !important;
+  height: 72px !important;
+  flex-shrink: 0;
   filter: drop-shadow(2px 2px 0px var(--text-color));
 }
 
@@ -43,11 +53,12 @@
   font-size: 1rem;
   color: var(--text-color);
   text-align: center;
-  max-width: 90px;
+  width: 90px;
   padding: 2px 4px;
   border-radius: 2px;
   text-shadow: 1px 1px 0 var(--bg-color), -1px -1px 0 var(--bg-color),
     1px -1px 0 var(--bg-color), -1px 1px 0 var(--bg-color);
+  white-space: nowrap;
 }
 
 /* Selected/Active States */

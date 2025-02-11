@@ -145,18 +145,20 @@ const Desktop = () => {
 
       {/* Desktop Area */}
       <div className="desktop">
-        {icons.map((icon) => (
-          <div
-            key={icon.name}
-            className="draggable-icon"
-            onClick={() => handleIconClick(icon)}
-          >
-            <div className="icon-box">
-              <IconComponent iconId={icon.iconId} />
+        <div className="icon-area">
+          {icons.map((icon) => (
+            <div
+              key={icon.name}
+              className="draggable-icon"
+              onClick={() => handleIconClick(icon)}
+            >
+              <div className="icon-box">
+                <IconComponent iconId={icon.iconId} />
+              </div>
+              <span className="icon-label">{icon.name}</span>
             </div>
-            <span className="icon-label">{icon.name}</span>
-          </div>
-        ))}
+          ))}
+        </div>
 
         {openWindows.keebViewer.isOpen && (
           <KeebViewer

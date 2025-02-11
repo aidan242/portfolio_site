@@ -7,7 +7,7 @@
 @import "./components/AboutMe.css";
 
 /* Root Variables */
-:root  {
+:root {
   --bg-color: #faf1e4;
   --main-color: #618c56;
   --error-color: #ad4f4e;
@@ -17,21 +17,32 @@
 }
 
 /* Reset and Base Styles */
+html {
+  min-width: 1280px;
+}
+
 html,
 body {
   margin: 0;
   padding: 0;
-  overflow: hidden;
   background-color: var(--bg-color);
   font-family: "VT323", monospace;
   color: var(--text-color);
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  overflow: auto;
 }
 
 /* Root Container */
 .retro-os {
-  height: 100vh;
+  min-height: 100vh;
+  min-width: 1280px;
   display: flex;
   flex-direction: column;
   background-color: var(--bg-color);
   image-rendering: pixelated;
+  position: relative;
 }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import IconComponent from "./IconComponent";
 
 const DraggableIcon = ({ icon, position, onPositionChange, onClick }) => {
   const navigate = useNavigate();
@@ -88,7 +89,7 @@ const DraggableIcon = ({ icon, position, onPositionChange, onClick }) => {
       onMouseDown={handleMouseDown}
     >
       <div className="icon-box">
-        <span>?</span>
+        <IconComponent iconId={icon.iconId} />
       </div>
       <span className="icon-label">{icon.name}</span>
     </div>
