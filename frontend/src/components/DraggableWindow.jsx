@@ -16,6 +16,7 @@ const DraggableWindow = ({
   const [isDragging, setIsDragging] = useState(false);
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const windowRef = useRef(null);
+  const [tabZIndexes, setTabZIndexes] = useState({});
 
   const adjustWindowPosition = useCallback(() => {
     if (!windowRef.current) return;
@@ -88,6 +89,13 @@ const DraggableWindow = ({
 
   const handleTabChange = useCallback(
     (tabId) => {
+      // Update z-indexes for smooth transition
+      const newTabZIndexes = {};
+      tabs.forEach((tab) => {
+        newTabZIndexes[tab.id] = tab.id === tabId ? 3 : 1;
+      });
+      setTabZIndexes(newTabZIndexes);
+
       onTabChange(tabId);
       // Use requestAnimationFrame to wait for DOM update
       requestAnimationFrame(() => {
@@ -96,8 +104,19 @@ const DraggableWindow = ({
         });
       });
     },
-    [onTabChange, adjustWindowPosition]
+    [onTabChange, adjustWindowPosition, tabs]
   );
+
+  // Initialize tab z-indexes
+  useEffect(() => {
+    if (tabs) {
+      const initialTabZIndexes = {};
+      tabs.forEach((tab) => {
+        initialTabZIndexes[tab.id] = tab.id === activeTab ? 3 : 1;
+      });
+      setTabZIndexes(initialTabZIndexes);
+    }
+  }, [tabs, activeTab]);
 
   // Adjust position on mount and window resize
   useEffect(() => {
@@ -151,6 +170,7 @@ const DraggableWindow = ({
                   className={`window-tab ${
                     activeTab === tab.id ? "active" : ""
                   }`}
+                  style={{ zIndex: tabZIndexes[tab.id] || 1 }}
                   onClick={(e) => {
                     e.stopPropagation(); // Prevent drag start when clicking tabs
                     handleTabChange(tab.id);
