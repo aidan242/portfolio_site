@@ -1,0 +1,19 @@
+# Project Structure
+```
+my-react-app/
+├── frontend/
+│   ├── public/
+│   │   └── index.html
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── DraggableWindow.jsx
+│   │   │   ├── DraggableIcon.jsx
+│   │   │   └── KeebViewer.jsx
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   ├── package.json
+│   └── vite.config.js
+└── backend/
+    ├── go.mod
+    └── main.go
+```

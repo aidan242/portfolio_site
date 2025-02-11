@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+@import "./components/TopBar.css";
+@import "./components/Desktop.css";
+@import "./components/DraggableWindow.css";
+@import "./components/KeebViewer.css";
+@import "./components/SocialLinks.css";
+@import "./components/AboutMe.css";
+
+/* Root Variables */
+:root  {
+  --bg-color: #faf1e4;
+  --main-color: #618c56;
+  --error-color: #ad4f4e;
+  --text-color: #3c403b;
+  --sub-color: #c2b8aa;
+  --pixel-size: 2px;
+}
+
+/* Reset and Base Styles */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: var(--bg-color);
+  font-family: "VT323", monospace;
+  color: var(--text-color);
+}
+
+/* Root Container */
+.retro-os {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-color);
+  image-rendering: pixelated;
+}

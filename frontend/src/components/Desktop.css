@@ -1,0 +1,69 @@
+/* Desktop Area */
+.desktop {
+  flex: 1;
+  padding: 32px 64px 32px 32px;
+  position: relative;
+  background: var(--bg-color);
+  background-image: linear-gradient(var(--sub-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--sub-color) 1px, transparent 1px);
+  background-size: 32px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* Icon Styling */
+.draggable-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  width: 100px;
+  padding: 4px;
+  transition: all 0.1s ease;
+}
+
+.icon-box {
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+  position: relative;
+}
+
+.icon-box svg {
+  width: 72px;
+  height: 72px;
+  filter: drop-shadow(2px 2px 0px var(--text-color));
+}
+
+.icon-label {
+  font-size: 1rem;
+  color: var(--text-color);
+  text-align: center;
+  max-width: 90px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  text-shadow: 1px 1px 0 var(--bg-color), -1px -1px 0 var(--bg-color),
+    1px -1px 0 var(--bg-color), -1px 1px 0 var(--bg-color);
+}
+
+/* Selected/Active States */
+.draggable-icon.selected,
+.draggable-icon:active {
+  background-color: rgba(60, 64, 59, 0.1);
+}
+
+.draggable-icon.selected .icon-label,
+.draggable-icon:active .icon-label {
+  background-color: var(--main-color);
+  color: var(--bg-color);
+  text-shadow: 1px 1px 0 var(--text-color);
+}
+
+/* Hover State */
+.draggable-icon:hover:not(.selected) .icon-label {
+  background-color: rgba(97, 140, 86, 0.1);
+}

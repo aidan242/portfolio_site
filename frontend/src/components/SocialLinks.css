@@ -1,0 +1,36 @@
+/* Social Links Styles */
+.social-links-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.social-link-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  text-decoration: none;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  border: var(--pixel-size) solid var(--text-color);
+  box-shadow: 2px 2px 0 var(--text-color);
+  transition: 0.2s;
+  font-size: 16px;
+}
+
+.social-link-item:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--text-color);
+  color: var(--text-color);
+}
+
+.social-link-item:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--text-color);
+  color: var(--text-color);
+}
+
+.social-link-item svg {
+  color: var(--main-color);
+}

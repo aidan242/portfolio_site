@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Route Chart Icon -->
+    <symbol id="about-me" viewBox="0 0 32 32">
+      <rect width="32" height="32" fill="none"/>
+      <path d="M8 24 L8 12 L16 8 L24 12 L24 24" stroke="#618c56" stroke-width="2" fill="none"/>
+      <rect x="6" y="22" width="4" height="4" fill="#ad4f4e"/>
+      <rect x="14" y="6" width="4" height="4" fill="#618c56"/>
+      <rect x="22" y="22" width="4" height="4" fill="#ad4f4e"/>
+      <path d="M8 16 L24 20" stroke="#c2b8aa" stroke-width="2"/>
+    </symbol>
+
+    <!-- Keyboard Icon -->
+    <symbol id="keyboard" viewBox="0 0 32 32">
+      <rect x="4" y="8" width="24" height="16" fill="#3c403b"/>
+      <rect x="6" y="10" width="2" height="2" fill="#618c56"/>
+      <rect x="10" y="10" width="2" height="2" fill="#ad4f4e"/>
+      <rect x="14" y="10" width="2" height="2" fill="#618c56"/>
+      <rect x="18" y="10" width="2" height="2" fill="#ad4f4e"/>
+      <rect x="22" y="10" width="2" height="2" fill="#618c56"/>
+      <rect x="8" y="14" width="2" height="2" fill="#ad4f4e"/>
+      <rect x="12" y="14" width="2" height="2" fill="#618c56"/>
+      <rect x="16" y="14" width="2" height="2" fill="#ad4f4e"/>
+      <rect x="20" y="14" width="2" height="2" fill="#618c56"/>
+      <rect x="6" y="18" width="16" height="2" fill="#faf1e4"/>
+    </symbol>
+
+    <!-- Projects Icon -->
+    <symbol id="projects" viewBox="0 0 32 32">
+      <path d="M6 6 L26 6 L26 22 L6 22 Z" fill="#618c56"/>
+      <path d="M10 22 L22 22 L22 26 L10 26 Z" fill="#3c403b"/>
+      <rect x="8" y="10" width="16" height="2" fill="#faf1e4"/>
+      <rect x="8" y="14" width="16" height="2" fill="#ad4f4e"/>
+      <rect x="8" y="18" width="16" height="2" fill="#faf1e4"/>
+    </symbol>
+
+    <!-- Links Icon -->
+    <symbol id="links" viewBox="0 0 32 32">
+      <path d="M12 16 L8 16 A6 6 0 0 1 8 4 L12 4" stroke="#618c56" stroke-width="3" fill="none"/>
+      <path d="M20 16 L24 16 A6 6 0 0 0 24 4 L20 4" stroke="#ad4f4e" stroke-width="3" fill="none"/>
+      <path d="M12 10 L20 10" stroke="#c2b8aa" stroke-width="3"/>
+      <path d="M12 28 L8 28 A6 6 0 0 1 8 16 L24 16 A6 6 0 0 1 24 28 L20 28" stroke="#3c403b" stroke-width="3" fill="none"/>
+    </symbol>
+  </defs>
+</svg>
