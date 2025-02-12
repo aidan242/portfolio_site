@@ -18,13 +18,13 @@ const Desktop = () => {
   const [openWindows, setOpenWindows] = useState({
     links: { isOpen: false, zIndex: 0 },
     keebViewer: { isOpen: false, zIndex: 0 },
-    aboutMe: { isOpen: false, zIndex: 0 },
+    aboutMe: { isOpen: true, zIndex: 1 }, // Initialize AboutMe as open
   });
   const [linksWindowPosition, setLinksWindowPosition] = useState({
     x: 100,
     y: 100,
   });
-  const [nextZIndex, setNextZIndex] = useState(1);
+  const [nextZIndex, setNextZIndex] = useState(2); // Start at 2 since AboutMe uses 1
 
   const icons = [
     {

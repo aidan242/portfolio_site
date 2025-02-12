@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import DraggableWindow from "./DraggableWindow";
 
 const AboutMe = ({ onClose, zIndex, onFocus }) => {
@@ -6,7 +6,7 @@ const AboutMe = ({ onClose, zIndex, onFocus }) => {
     x: 100,
     y: 100,
   });
-  const [activeTab, setActiveTab] = useState("bio");
+  const [activeTab, setActiveTab] = useState(null); // Start with no tab selected
 
   const tabs = [
     { id: "bio", label: "Bio" },
@@ -16,7 +16,14 @@ const AboutMe = ({ onClose, zIndex, onFocus }) => {
     { id: "contact", label: "Contact" },
   ];
 
+  // Set initial tab after a brief delay
+  useEffect(() => {
+    setActiveTab("bio");
+  }, []);
+
   const renderTabContent = () => {
+    if (!activeTab) return null; // Return nothing if no tab is selected
+
     switch (activeTab) {
       case "bio":
         return (
