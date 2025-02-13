@@ -1,0 +1,126 @@
+/* Projects Window Styles */
+.projects-content {
+  width: 600px;
+  color: var(--text-color);
+  padding: 8px;
+}
+
+.projects-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.project-card {
+  background-color: var(--bg-color);
+  border: var(--pixel-size) solid var(--text-color);
+  box-shadow: 2px 2px 0 var(--text-color);
+  transition: 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--text-color);
+}
+
+.project-header {
+  background-color: var(--main-color);
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: var(--pixel-size) solid var(--text-color);
+}
+
+.project-title {
+  font-size: 1.1rem;
+  color: var(--bg-color);
+  margin: 0;
+  text-decoration: none;
+  text-shadow: var(--pixel-size) var(--pixel-size) var(--text-color);
+}
+
+.project-title:hover {
+  opacity: 0.9;
+}
+
+.project-stats {
+  display: flex;
+  gap: 12px;
+  font-size: 0.9rem;
+  color: var(--bg-color);
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  text-shadow: var(--pixel-size) var(--pixel-size) var(--text-color);
+}
+
+.project-content {
+  padding: 12px;
+}
+
+.project-description {
+  font-size: 1rem;
+  line-height: 1.4;
+  margin: 0 0 12px 0;
+  color: var(--text-color);
+}
+
+.project-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  padding: 8px 12px;
+  background-color: var(--sub-color);
+  border-top: var(--pixel-size) solid var(--text-color);
+}
+
+.project-language {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.language-dot {
+  width: 8px;
+  height: 8px;
+  border: var(--pixel-size) solid var(--text-color);
+}
+
+.project-updated {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.loading-state,
+.error-state {
+  text-align: center;
+  padding: 32px;
+  background-color: var(--bg-color);
+  border: var(--pixel-size) solid var(--text-color);
+  box-shadow: 2px 2px 0 var(--text-color);
+  margin: 16px;
+}
+
+.error-state {
+  color: var(--error-color);
+  border-color: var(--error-color);
+}
+
+@media (max-width: 768px) {
+  .projects-content {
+    width: 100%;
+    padding: 4px;
+  }
+
+  .project-card {
+    margin: 0 4px;
+  }
+}
