@@ -1,34 +1,32 @@
 import React, { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import DraggableWindow from "./DraggableWindow";
 
 const KeebViewer = ({ onClose, zIndex, onFocus }) => {
-  const [images, setImages] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [keyboards, setKeyboards] = useState([]);
+  const [selectedKeyboard, setSelectedKeyboard] = useState(null);
   const [windowPosition, setWindowPosition] = useState({ x: 100, y: 100 });
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const loadImages = async () => {
+    const loadKeyboards = async () => {
       try {
-        const response = await fetch("/api/keeb-images");
-        const imageList = await response.json();
-        setImages(imageList);
+        const response = await fetch("/keyboards.json");
+        const data = await response.json();
+        setKeyboards(data.keyboards);
+        setSelectedKeyboard(data.keyboards[0]);
+        setLoading(false);
       } catch (error) {
-        console.error("Error loading images:", error);
+        console.error("Error loading keyboard data:", error);
+        setLoading(false);
       }
     };
-    loadImages();
+    loadKeyboards();
   }, []);
 
-  const handlePrevious = () => {
+  const handleKeyboardSelect = (keyboard) => {
     setImageLoaded(false);
-    setCurrentIndex((prev) => (prev > 0 ? prev - 1 : images.length - 1));
-  };
-
-  const handleNext = () => {
-    setImageLoaded(false);
-    setCurrentIndex((prev) => (prev < images.length - 1 ? prev + 1 : 0));
+    setSelectedKeyboard(keyboard);
   };
 
   return (
@@ -41,38 +39,73 @@ const KeebViewer = ({ onClose, zIndex, onFocus }) => {
       onFocus={onFocus}
     >
       <div className="keeb-viewer">
-        {images.length > 0 ? (
+        {loading ? (
+          <div className="loading">Loading keyboards...</div>
+        ) : (
           <>
-            <button
-              className="nav-button left"
-              onClick={handlePrevious}
-              aria-label="Previous image"
-            >
-              <ChevronLeft size={16} />
-            </button>
-
-            <div className="image-container">
-              <img
-                src={`/img/${images[currentIndex]}`}
-                alt={`Keyboard ${currentIndex + 1}`}
-                className={imageLoaded ? "loaded" : ""}
-                onLoad={() => setImageLoaded(true)}
-              />
-              <div className="image-counter">
-                {currentIndex + 1} / {images.length}
-              </div>
+            <div className="keyboard-list">
+              {keyboards.map((keyboard) => (
+                <button
+                  key={keyboard.id}
+                  className={`keyboard-list-item ${
+                    selectedKeyboard?.id === keyboard.id ? "active" : ""
+                  }`}
+                  onClick={() => handleKeyboardSelect(keyboard)}
+                >
+                  {keyboard.name}
+                </button>
+              ))}
             </div>
 
-            <button
-              className="nav-button right"
-              onClick={handleNext}
-              aria-label="Next image"
-            >
-              <ChevronRight size={16} />
-            </button>
+            <div className="keyboard-details">
+              {selectedKeyboard ? (
+                <>
+                  <div className="image-container">
+                    <img
+                      src={`/img/${selectedKeyboard.image}`}
+                      alt={selectedKeyboard.name}
+                      className={imageLoaded ? "loaded" : ""}
+                      onLoad={() => setImageLoaded(true)}
+                    />
+                  </div>
+
+                  <div className="keyboard-info">
+                    <p className="keyboard-description">
+                      {selectedKeyboard.description}
+                    </p>
+                    <div className="specs-grid">
+                      <div className="spec-item">
+                        <span className="spec-label">Type</span>
+                        <span className="spec-value">
+                          {selectedKeyboard.specs.type}
+                        </span>
+                      </div>
+                      <div className="spec-item">
+                        <span className="spec-label">Switches</span>
+                        <span className="spec-value">
+                          {selectedKeyboard.specs.switches}
+                        </span>
+                      </div>
+                      <div className="spec-item">
+                        <span className="spec-label">Keycaps</span>
+                        <span className="spec-value">
+                          {selectedKeyboard.specs.keycaps}
+                        </span>
+                      </div>
+                      <div className="spec-item">
+                        <span className="spec-label">Plate</span>
+                        <span className="spec-value">
+                          {selectedKeyboard.specs.plate}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <div className="loading">Select a keyboard to view details</div>
+              )}
+            </div>
           </>
-        ) : (
-          <div className="loading">Loading images...</div>
         )}
       </div>
     </DraggableWindow>

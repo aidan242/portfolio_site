@@ -5,6 +5,7 @@
 @import "./components/KeebViewer.css";
 @import "./components/SocialLinks.css";
 @import "./components/AboutMe.css";
+@import "./components/Projects.css";
 
 /* Root Variables */
 :root {

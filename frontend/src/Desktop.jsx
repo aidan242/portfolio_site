@@ -3,6 +3,7 @@ import { Twitter, Linkedin, Github } from "lucide-react";
 import DraggableWindow from "@/components/DraggableWindow";
 import KeebViewer from "@/components/KeebViewer";
 import AboutMe from "@/components/AboutMe";
+import Projects from "@/components/Projects";
 import IconComponent from "@/components/IconComponent";
 
 const Desktop = () => {
@@ -18,13 +19,10 @@ const Desktop = () => {
   const [openWindows, setOpenWindows] = useState({
     links: { isOpen: false, zIndex: 0 },
     keebViewer: { isOpen: false, zIndex: 0 },
-    aboutMe: { isOpen: true, zIndex: 1 }, // Initialize AboutMe as open
+    aboutMe: { isOpen: false, zIndex: 0 },
+    projects: { isOpen: false, zIndex: 0 },
   });
-  const [linksWindowPosition, setLinksWindowPosition] = useState({
-    x: 100,
-    y: 100,
-  });
-  const [nextZIndex, setNextZIndex] = useState(2); // Start at 2 since AboutMe uses 1
+  const [nextZIndex, setNextZIndex] = useState(1);
 
   const icons = [
     {
@@ -39,7 +37,7 @@ const Desktop = () => {
     },
     {
       name: "Projects",
-      path: "/projects",
+      action: () => handleWindowOpen("projects"),
       iconId: "projects",
     },
     {
@@ -119,14 +117,11 @@ const Desktop = () => {
   const handleIconClick = (icon) => {
     if (icon.action) {
       icon.action();
-    } else if (icon.path) {
-      // Handle navigation
     }
   };
 
   return (
     <div className="retro-os">
-      {/* Top Bar */}
       <div className="top-bar">
         <div className="right">
           <span className="separator">
@@ -143,7 +138,6 @@ const Desktop = () => {
         </div>
       </div>
 
-      {/* Desktop Area */}
       <div className="desktop">
         <div className="icon-area">
           {icons.map((icon) => (
@@ -176,14 +170,23 @@ const Desktop = () => {
           />
         )}
 
+        {openWindows.projects.isOpen && (
+          <Projects
+            onClose={() => handleWindowClose("projects")}
+            zIndex={openWindows.projects.zIndex}
+            onFocus={() => handleWindowFocus("projects")}
+          />
+        )}
+
         {openWindows.links.isOpen && (
           <DraggableWindow
             title="Social Links"
-            position={linksWindowPosition}
-            onPositionChange={setLinksWindowPosition}
+            position={{ x: 100, y: 100 }}
+            onPositionChange={() => {}}
             onClose={() => handleWindowClose("links")}
             zIndex={openWindows.links.zIndex}
             onFocus={() => handleWindowFocus("links")}
+            width={320}
           >
             <div className="social-links-container">
               {socialLinks.map((link) => (

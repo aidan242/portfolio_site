@@ -1,0 +1,64 @@
+{
+  "keyboards": [
+    {
+      "id": 1,
+      "name": "Planck V7",
+      "image": "planck.jpg",
+      "description": "First 40% keyboard, attempted to make it look like a skull with black/white blank keycaps",
+      "specs": {
+        "switches": "Aquaglide linear, jade clicky",
+        "keycaps": "Blank DHP",
+        "type": "40% Custom Mechanical",
+        "plate": "Aluminum"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Tofu 65",
+      "image": "tofu65.jpeg",
+      "description": "Work board, my favorite of the lot",
+      "specs": {
+        "switches": "Gateron Oil King",
+        "keycaps": "Toffee",
+        "type": "65% Custom Mechanical",
+        "plate": "Polycarbonate"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Neo Ergo",
+      "image": "neoergo.jpeg",
+      "description": "Ergo board, my daily.",
+      "specs": {
+        "switches": "Purple tactile",
+        "keycaps": "Drop /dev/tty",
+        "type": "75% Custom Ergo Mechanical",
+        "plate": "Polycarbonate"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Tacopad",
+      "image": "tacopad.jpeg",
+      "description": "Macropad",
+      "specs": {
+        "switches": "Kahlil box jade",
+        "keycaps": "GMK Olivia++ Light Base Kit",
+        "type": "Numpad",
+        "plate": "Polycarbonate"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Keychron q2 pro",
+      "image": "keychronq2.jpeg",
+      "description": "My first board, lost to an unfortunate spill",
+      "specs": {
+        "switches": "Gateron Tactile silent",
+        "keycaps": "GMK Purple Base Kit",
+        "type": "75% Custom Mechanical",
+        "plate": "Aluminum"
+      }
+    }
+  ]
+}
